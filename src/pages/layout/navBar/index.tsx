@@ -28,7 +28,7 @@ const NavBar = ({ open, handleDrawerOpen }: TProps) => {
               <Name sx={{ width: 50, height: 50 }} />
             </Stack>
           )}
-          <IconButton
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -38,7 +38,7 @@ const NavBar = ({ open, handleDrawerOpen }: TProps) => {
             }}
           >
             <MenuIcon fontSize="small" />
-          </IconButton>
+          </IconButton> */}
         </Box>
       </Toolbar>
     </AppBar>

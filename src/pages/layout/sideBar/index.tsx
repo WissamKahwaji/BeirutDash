@@ -57,9 +57,9 @@ const SideBar = ({ open, handleDrawerClose }: IProps) => {
           <Logo sx={{ width: 50, height: 50 }} />
           <Name sx={{ width: 50, height: 50 }} />
         </Stack>
-        <IconButton onClick={handleDrawerClose}>
+        {/* <IconButton onClick={handleDrawerClose}>
           <ChevronRightIcon sx={{ color: "#fff" }} />
-        </IconButton>
+        </IconButton> */}
       </DrawerHeader>
       <Box
         onScroll={handleScroll}
