@@ -25,8 +25,17 @@ const LoginPage = () => {
     navigate("/");
   };
   return (
-    <Stack height={"100vh"} justifyContent={"center"} alignItems={"center"}>
-      <Paper sx={{ width: { md: "40vw" } }}>
+    <Stack
+      minHeight={"97vh"}
+      overflow={"hidden"}
+      justifyContent={"center"}
+      alignItems={"center"}
+    >
+      <Paper
+        sx={{
+          width: { md: "40vw" },
+        }}
+      >
         <Formik
           initialValues={{ password: "" }}
           validationSchema={validation}
@@ -44,7 +53,7 @@ const LoginPage = () => {
               <Stack
                 justifyContent={"center"}
                 alignItems={"center"}
-                p={12}
+                p={{ xs: 3, sm: 6, md: 9, lg: 12 }}
                 gap={4}
               >
                 <Stack direction={"row"}>

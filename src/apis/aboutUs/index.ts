@@ -9,8 +9,8 @@ const getAboutUsInfo = async () => {
 };
 const updateAboutUsInfo = async (payload: AboutUsInfo) => {
   const data = createFormData(payload);
-  const res = await publicInstance.post<AboutUsInfo>(
-    API_ROUTES.ABOUT_US.GET,
+  const res = await publicInstance.put<AboutUsInfo>(
+    `${API_ROUTES.ABOUT_US.GET}/${payload._id}`,
     data
   );
   return res.data;

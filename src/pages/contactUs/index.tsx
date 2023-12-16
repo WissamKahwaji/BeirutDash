@@ -1,6 +1,6 @@
 import { ContactUsInfo } from "@/apis/constactUs/type";
 import {
-  useAddContactUsInfoMutation,
+  useEditContactUsInfoMutation,
   useGetContactUsInfo,
 } from "@/apis/constactUs/queries";
 import { Box, Grid, Stack, TextField, Typography } from "@mui/material";
@@ -10,7 +10,7 @@ import LoadingButton from "@/components/items/buttons/loadingButton/LoadingButto
 
 const Contact = () => {
   const { data: contactInfo, isLoading, isError } = useGetContactUsInfo();
-  const { mutate: addContactUsInfo } = useAddContactUsInfoMutation();
+  const { mutate: addContactUsInfo } = useEditContactUsInfoMutation();
   if (isLoading) return <></>;
   if (isError) return <></>;
   const handleUpdateContactInfo = (
@@ -27,14 +27,20 @@ const Contact = () => {
   return (
     <Box>
       <Typography
-        variant="h3"
         component={"h1"}
-        sx={{ textAlign: "center", mb: 6 }}
+        sx={{
+          textAlign: "center",
+          fontSize: "2rem",
+          fontWeight: "bold",
+          textTransform: "capitalize",
+          mb: 6,
+        }}
       >
         contact us
       </Typography>
       <Formik
         initialValues={{
+          _id: contactInfo?._id!,
           title: contactInfo?.title!,
           content: contactInfo?.content!,
         }}

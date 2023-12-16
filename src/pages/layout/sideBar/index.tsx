@@ -117,9 +117,11 @@ const SideBar = ({ open, handleDrawerClose }: IProps) => {
                         >
                           <navLink.icon />
                         </ListItemIcon>
-                        <ListItemText>
-                          <Typography>{navLink.name}</Typography>
-                        </ListItemText>
+                        {open && (
+                          <ListItemText>
+                            <Typography>{navLink.name}</Typography>
+                          </ListItemText>
+                        )}
                       </ListItemButton>
                     </ListItem>
                   </Tooltip>

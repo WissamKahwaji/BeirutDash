@@ -32,23 +32,41 @@ const AboutUs = () => {
     });
   };
   const initialValues: AboutUsInfo = {
+    _id: contact?._id!,
     title: contact?.title!,
     description: contact?.description!,
     content: [
-      { text: contact?.content[0]!.text!, img: null },
-      { text: contact?.content[1]!.text!, img: null },
+      {
+        _id: contact?.content[0]._id!,
+        text: contact?.content[0]!.text!,
+        img: null,
+      },
+      {
+        _id: contact?.content[1]._id!,
+        text: contact?.content[1]!.text!,
+        img: null,
+      },
     ],
   };
   return (
     <Box>
       <Typography
-        variant="h3"
         component={"h1"}
-        sx={{ textAlign: "center", mb: 6 }}
+        sx={{
+          textAlign: "center",
+          fontSize: "2rem",
+          fontWeight: "bold",
+          textTransform: "capitalize",
+          mb: 6,
+        }}
       >
-        contact us
+        about us
       </Typography>
-      <Formik initialValues={initialValues} onSubmit={handleUpdateContact}>
+      <Formik
+        initialValues={initialValues}
+        enableReinitialize
+        onSubmit={handleUpdateContact}
+      >
         {({ values, handleChange, touched, errors, isSubmitting }) => (
           <Form>
             <Grid container gap={2}>
@@ -79,7 +97,7 @@ const AboutUs = () => {
               <Grid item xs={12}>
                 <Divider />
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={5}>
                 <TextField
                   name="content.0.text"
                   multiline
@@ -94,14 +112,8 @@ const AboutUs = () => {
                   }
                 />
               </Grid>
-              <Grid item xs={12} md={4}>
-                <ImageDragDropField
-                  name="content.0.img"
-                  label="first img"
-                  oldImg={contact?.content[0].img! as string}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
+
+              <Grid item xs={12} md={5}>
                 <TextField
                   name="content.1.text"
                   multiline
@@ -116,13 +128,21 @@ const AboutUs = () => {
                   }
                 />
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid item xs={12} md={5}>
+                <ImageDragDropField
+                  name="content.0.img"
+                  label="first img"
+                  oldImg={contact?.content[0].img! as string}
+                />
+              </Grid>
+              <Grid item xs={12} md={5}>
                 <ImageDragDropField
                   name="content.1.img"
                   label="second img"
                   oldImg={contact?.content[1].img! as string}
                 />
               </Grid>
+
               <Grid item xs={12}>
                 <Stack justifyContent={"center"}>
                   <LoadingButton

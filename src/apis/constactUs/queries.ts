@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { addContactUsInfo, getContactUsInfo } from ".";
+import { editContactUsInfo, getContactUsInfo } from ".";
 import { ContactUsInfo } from "./type";
 import { toast } from "react-toastify";
 
@@ -9,11 +9,11 @@ const useGetContactUsInfo = () =>
     queryFn: () => getContactUsInfo(),
   });
 
-const useAddContactUsInfoMutation = () => {
+const useEditContactUsInfoMutation = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: ["add-contact-us-info"],
-    mutationFn: (payload: ContactUsInfo) => addContactUsInfo(payload),
+    mutationFn: (payload: ContactUsInfo) => editContactUsInfo(payload),
     onSuccess() {
       toast.success("update contact info successfully.");
       queryClient.invalidateQueries({ queryKey: ["about-us-in"] });
@@ -23,4 +23,4 @@ const useAddContactUsInfoMutation = () => {
     },
   });
 };
-export { useGetContactUsInfo, useAddContactUsInfoMutation };
+export { useGetContactUsInfo, useEditContactUsInfoMutation };

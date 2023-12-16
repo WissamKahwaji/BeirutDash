@@ -8,11 +8,11 @@ const getContactUsInfo = async () => {
   );
   return res.data;
 };
-const addContactUsInfo = async (payload: ContactUsInfo) => {
-  const res = await publicInstance.post<ContactUsInfo>(
-    API_ROUTES.CONTACT_US.ADD,
+const editContactUsInfo = async (payload: ContactUsInfo) => {
+  const res = await publicInstance.put<ContactUsInfo>(
+    API_ROUTES.CONTACT_US.Edit(payload._id),
     payload
   );
   return res.data;
 };
-export { getContactUsInfo, addContactUsInfo };
+export { getContactUsInfo, editContactUsInfo };

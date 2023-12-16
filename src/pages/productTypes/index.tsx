@@ -12,9 +12,14 @@ const ProductTypes = () => {
   return (
     <Box>
       <Typography
-        variant="h3"
         component={"h1"}
-        sx={{ textAlign: "center", mb: 6 }}
+        sx={{
+          textAlign: "center",
+          fontSize: "2rem",
+          fontWeight: "bold",
+          textTransform: "capitalize",
+          mb: 6,
+        }}
       >
         product types
       </Typography>
@@ -22,7 +27,7 @@ const ProductTypes = () => {
         <Grid item xs={12}>
           <Stack justifyContent={"end"} direction={"row"}>
             <Button
-              onClick={() => navigate("/product")}
+              onClick={() => navigate("/product-type")}
               variant="contained"
               startIcon={<Add />}
             >
@@ -32,7 +37,7 @@ const ProductTypes = () => {
         </Grid>
         <Grid item container xs={12}>
           {productTypes?.map((productType) => (
-            <Grid item xs={6} sm={4} md={3}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
               <Box p={1}>
                 <ProductTypeCard productType={productType} />
               </Box>

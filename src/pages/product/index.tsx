@@ -36,6 +36,7 @@ const Product = () => {
   if (isLoading && isFetching) return <LoadingPage />;
   if (isError) return <></>;
   const initialValues: TProduct = {
+    ...(id && { _id: id }),
     title: product?.title ?? "",
     desc: product?.desc ?? "",
     img: null,
@@ -65,9 +66,14 @@ const Product = () => {
   return (
     <Box>
       <Typography
-        variant="h3"
         component={"h1"}
-        sx={{ textAlign: "center", mb: 6 }}
+        sx={{
+          textAlign: "center",
+          fontSize: "2rem",
+          fontWeight: "bold",
+          textTransform: "capitalize",
+          mb: 6,
+        }}
       >
         product{" "}
       </Typography>

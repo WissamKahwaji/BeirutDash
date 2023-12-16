@@ -1,15 +1,15 @@
 export type ProductType = {
-  _id: string;
+  _id?: string;
   name: string;
-  img?: string;
-} | null;
+  img?: string | null;
+};
 export type Product = {
   deepDetails: DeepDetails[];
   _id?: string;
   img: string | null;
   title: string;
   desc: string;
-  type: ProductType;
+  type: ProductType | null;
   __v?: number;
 };
 
