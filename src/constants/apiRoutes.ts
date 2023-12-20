@@ -1,3 +1,6 @@
+const AUTH = {
+  SIGN_IN: "/auth/signin",
+};
 const PRODUCTS = {
   GET_PRODUCTS: "/products",
   GET_PRODUCTS_BY_TYPE: "/products/type-products",
@@ -22,5 +25,5 @@ const CONTACT_US = {
 const ABOUT_US = {
   GET: "/about",
 };
-const API_ROUTES = { PRODUCTS, COMMON, HOME_DATA, CONTACT_US, ABOUT_US };
+const API_ROUTES = { AUTH, PRODUCTS, COMMON, HOME_DATA, CONTACT_US, ABOUT_US };
 export default API_ROUTES;

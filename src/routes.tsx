@@ -14,12 +14,16 @@ const AboutUs = lazy(() => import("@/pages/aboutUs"));
 const Product = lazy(() => import("@/pages/product"));
 const ProductTypes = lazy(() => import("@/pages/productTypes"));
 const ProductType = lazy(() => import("@/pages/productType"));
-const LoginPage = lazy(() => import("@/pages/login"));
+const SignInPage = lazy(() => import("@/pages/signIn"));
+const UnAuthorized = lazy(() => import("@/pages/unAuthorized"));
 const Routes = () => {
   const routes = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route path="/" element={<App />}>
+        <Route
+          path="/"
+          element={localStorage.getItem("token") ? <App /> : <UnAuthorized />}
+        >
           <Route path="orders" element={<Orders />} />
           <Route path="contact-us" element={<ContactUs />} />
           <Route path="about-us" element={<AboutUs />} />
@@ -30,7 +34,7 @@ const Routes = () => {
           <Route path="product-type" element={<ProductType />} />
           <Route path="product-type/:id" element={<ProductType />} />
         </Route>
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/sign-in" element={<SignInPage />} />
       </Route>
     )
   );
